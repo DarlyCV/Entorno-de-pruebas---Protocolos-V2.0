@@ -332,6 +332,17 @@
     <fieldset>
       <legend>Datos del relé</legend>
       <div class="form-row">
+	 <div class="form-field">
+	  <label for="TipoProteccion">Tipo de protección efectuada</label>
+      <select id="TipoProteccion" name="TipoProteccion" required>
+	      <option value="" disabled selected hidden>Seleccione el tipo</option>
+	      <option value="-">-</option>
+	      <option value="Direccional">Direccional</option>
+	      <option value="No direccional">No direccional</option>
+	      <option value="Solo alarma">Solo alarma</option>
+	      <option value="Bloqueado">Bloqueado</option>
+    	</select>
+	  </div>
         <div class="form-field">
           <label for="kardexrele">Kardex</label>
           <input type="text" id="kardexrele" name="kardexrele" required>
@@ -540,6 +551,35 @@
     <fieldset>
       <legend>Datos del TT (de las 3 fases)</legend>
       <div class="form-row">
+		<div class="form-field">
+          <label for="ClaseCelda">Señales de tensión de:</label>
+          <select id="ClaseCelda" name="ClaseCelda" required>
+            <option value="" disabled selected hidden>Seleccione la clase de celda</option>
+			<option value="Celda propia">Celda propia</option>
+	        <option value="Celda de llegada">Celda de llegada</option>
+	        <option value="Celda circuito">Celda circuito</option>
+          </select>
+        </div>
+		<div class="form-field">
+          <label for="CeldaTomada">Celda</label>
+          <select id="CeldaTomada" name="CeldaTomada" required>
+            <option value="" disabled selected hidden>Seleccione la celda tomada de </option>
+            <option value="-">-</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="E">E</option>
+            <option value="F">F</option>
+            <option value="G">G</option>
+            <option value="H">H</option>
+            <option value="I">I</option>
+            <option value="J">J</option>
+            <option value="K">K</option>
+            <option value="L">L</option>
+            <option value="M">M</option>
+          </select>
+        </div>
         <div class="form-field">
           <label for="marcaTT">Marca del TT</label>
           <input type="text" id="marcaTT" name="marcaTT">
@@ -3312,16 +3352,6 @@
 
   <fieldset class="extra-protocolo">
     <legend>Datos del trabajo</legend>
-
-    <label for="TipoProteccion">Tipo de protección efectuada</label>
-      <select id="TipoProteccion" name="TipoProteccion" required>
-      <option value="" disabled selected hidden>Seleccione el tipo</option>
-      <option value="-">-</option>
-      <option value="Direccional">Direccional</option>
-      <option value="No direccional">No direccional</option>
-      <option value="Solo alarma">Solo alarma</option>
-      <option value="Bloqueado">Bloqueado</option>
-    </select>
 
     <label for="OtrasObservaciones">Trabajo efectuado</label>
     <input type="text" id="OtrasObservaciones" name="OtrasObservaciones" required="">
