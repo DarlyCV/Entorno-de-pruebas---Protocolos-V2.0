@@ -19,7 +19,7 @@ export const CAMPOS_FORMULARIO_PP = [
     "CodigoUnico","sed","alim","nodofinal","enlace","FormatoListaVerificacion","circuito","fecha","semana","hora","tension","Celda","equipo","tipoprueba","kardexrele","marcarele",
     "modelorele","serierele","seriereleSAP","CapacidadR","CapacidadT","VnRele","AlimentacionRele","AnioFabricacionRele","kardexequipo","marcaequipo","modeloequipo","tipoInstalacion","Tiporele","serieequipo",
     "serieequipoSAP","Inominal","ruptura","Tnominal","extincion","AnioFabricacionEquipo","ModemPP","IPRelePP","IPRouterPP","marcatoroidal","ClaseToroidal","RelConectToroidal","marcaTC","InstalacionTC","ClaseTC","InomPrim","InomSec",
-    "RelConectTC","marcaTT","ClaseTT","VnomPrim","VnomSec","RelConectTT","Antiferrorresonante","CurvaRecomendado51P","IPrimRecomendado51P","ISecRecomendado51P","TMSRecomendado51P","Recomendado3Uo51P",
+    "RelConectTC", "ClaseCelda", "CeldaTomada", "marcaTT","ClaseTT","VnomPrim","VnomSec","RelConectTT","Antiferrorresonante","CurvaRecomendado51P","IPrimRecomendado51P","ISecRecomendado51P","TMSRecomendado51P","Recomendado3Uo51P",
     "ForwardRecomendado51P","AnguloRecomendado51P","CurvaRealizado51P","IPrimRealizado51P","ISecRealizado51P","TMSRealizado51P","Realizado3Uo51P","ForwardRealizado51P","AnguloRealizado51P",
     "CurvaRecomendado50P1","IPrimRecomendado50P1","ISecRecomendado50P1","TMSRecomendado50P1","Recomendado3Uo50P1","ForwardRecomendado50P1","AnguloRecomendado50P1","CurvaRealizado50P1",
     "IPrimRealizado50P1","ISecRealizado50P1","TMSRealizado50P1","Realizado3Uo50P1","ForwardRealizado50P1","AnguloRealizado50P1","CurvaRecomendado50P2","IPrimRecomendado50P2","ISecRecomendado50P2",
