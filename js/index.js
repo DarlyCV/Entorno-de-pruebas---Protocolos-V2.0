@@ -867,6 +867,11 @@ function actualizarVisibilidadClaseCeldaEquipoManiobra() {
     }
 }
 
+document.getElementById("equipo").addEventListener("change", actualizarVisibilidadClaseCeldaEquipoManiobra);
+ 
+// Ejecutar al cargar la página para establecer el estado inicial correcto
+document.addEventListener("DOMContentLoaded", actualizarVisibilidadClaseCeldaEquipoManiobra);
+
 function actualizarVisibilidadDatosTT() {
     if (window.rellenandoFormulario) return; 
     const selectTipoProteccion = document.getElementById("TipoProteccion");
