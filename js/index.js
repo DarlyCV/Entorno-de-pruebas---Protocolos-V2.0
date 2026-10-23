@@ -847,6 +847,40 @@ function actualizarCampoSed() {
 
 }
 
+function actualizarVisibilidadDatosTT() {
+    if (window.rellenandoFormulario) return; 
+    const selectTipoProteccion = document.getElementById("TipoProteccion");
+    const valorTipoProteccion = selectTipoProteccion.value;
+    const fieldsetDatosTT = document.getElementById("Datos-TT");
+    const inputsDatosTT = fieldsetDatosTT.querySelectorAll("input, select, textarea");
+    // Comprueba que el valor sea DIFERENTE de "No direccional"
+    if (valorTipoProteccion !== "No direccional") {
+        // 👉 MOSTRAR FIELDSET
+        fieldsetDatosTT.classList.remove("hidden-field");
+        inputsDatosTT.forEach(campo => {
+            campo.required = true; 
+        });
+    } else {
+        // 👉 OCULTAR FIELDSET (Aplica para "No direccional" o cuando no hay selección inicial)
+        fieldsetDatosTT.classList.add("hidden-field");
+        inputsDatosTT.forEach(campo => {
+            campo.required = false;
+            campo.value = ""; // Opcional: limpia el valor si se oculta
+        });
+    }
+}
+ 
+document.getElementById("TipoProteccion").addEventListener("change", actualizarVisibilidadDatosTT);
+ 
+// Ejecutar al cargar la página para establecer el estado inicial correcto
+document.addEventListener("DOMContentLoaded", actualizarVisibilidadDatosTT);
+ 
+// 💡 Recuerda asignar el evento 'change' a tu select para que la función se ejecute al cambiar de opción:
+document.getElementById("TipoProteccion").addEventListener("change", actualizarVisibilidadDatosTT);
+ 
+// Si necesitas que se ejecute al cargar la página por si ya hay un valor por defecto:
+// document.addEventListener("DOMContentLoaded", actualizarVisibilidadDatosTT);
+
   function actualizarVisibilidadNodoFinalCA() {
     if (window.rellenandoFormulario) return;
     const valorEquipoCA = selectEquipoCA.value;
