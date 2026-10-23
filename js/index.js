@@ -847,6 +847,26 @@ function actualizarCampoSed() {
 
 }
 
+function actualizarVisibilidadClaseCeldaEquipoManiobra() {
+    if (window.rellenandoFormulario) return; 
+    const selectEquipoManiobra = document.getElementById("equipo");
+    const valorEquipoManiobra = selectEquipoManiobra.value;
+    const campoCeldaTomada = document.getElementById("campo-ClaseCelda");
+    const inputCeldaTomada = document.getElementById("ClaseCelda");
+ 
+    // "Si NO es Interruptor Y TAMPOCO es Seccionador..."
+    if (valorEquipoManiobra !== "Interruptor" && valorEquipoManiobra !== "Seccionador de potencia con bobina") {
+        // 👉 MOSTRAR 
+        campoCeldaTomada.classList.remove("hidden-field");
+        inputCeldaTomada.required = true;
+    } else {
+        // 👉 OCULTAR 
+        campoCeldaTomada.classList.add("hidden-field");
+        inputCeldaTomada.required = false;
+        inputCeldaTomada.value = ""; // Recomendado: limpiar el valor al ocultar
+    }
+}
+
 function actualizarVisibilidadDatosTT() {
     if (window.rellenandoFormulario) return; 
     const selectTipoProteccion = document.getElementById("TipoProteccion");
