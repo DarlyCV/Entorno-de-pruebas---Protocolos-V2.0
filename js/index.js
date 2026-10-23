@@ -874,12 +874,84 @@ document.getElementById("TipoProteccion").addEventListener("change", actualizarV
  
 // Ejecutar al cargar la página para establecer el estado inicial correcto
 document.addEventListener("DOMContentLoaded", actualizarVisibilidadDatosTT);
+
+
+function actualizarVisibilidadClaseCelda() {
+    if (window.rellenandoFormulario) return;
  
-// 💡 Recuerda asignar el evento 'change' a tu select para que la función se ejecute al cambiar de opción:
-document.getElementById("TipoProteccion").addEventListener("change", actualizarVisibilidadDatosTT);
+    const selectClaseCelda = document.getElementById("ClaseCelda");
+    const valorClaseCelda = selectClaseCelda.value;
  
-// Si necesitas que se ejecute al cargar la página por si ya hay un valor por defecto:
-// document.addEventListener("DOMContentLoaded", actualizarVisibilidadDatosTT);
+    // 1. Agrupamos los IDs de los campos de características del TT
+    const camposTT = [
+        "marcaTT",
+        "ClaseTT",
+        "VnomPrim",
+        "VnomSec",
+        "RelConectTT",
+        "Antiferrorresonante"
+    ];
+ 
+    // 2. Referencias al campo "Celda de referencia" (CeldaTomada)
+    const campoCeldaTomada = document.getElementById("campo-CeldaTomada");
+    const inputCeldaTomada = document.getElementById("CeldaTomada");
+ 
+    // ==========================================
+    // LÓGICA 1: Características del TT
+    // ==========================================
+    if (valorClaseCelda === "Celda circuito") {
+        // 👉 OCULTAR campos TT
+        camposTT.forEach(id => {
+            const contenedor = document.getElementById(`campo-${id}`);
+            const input = document.getElementById(id);
+            if (contenedor && input) {
+                contenedor.classList.add("hidden-field");
+                input.required = false;
+                input.value = ""; // Limpiar valor al ocultar
+            }
+        });
+    } else if (valorClaseCelda === "Celda propia" || valorClaseCelda === "Celda de llegada") {
+        // 👉 MOSTRAR campos TT
+        camposTT.forEach(id => {
+            const contenedor = document.getElementById(`campo-${id}`);
+            const input = document.getElementById(id);
+            if (contenedor && input) {
+                contenedor.classList.remove("hidden-field");
+                // De acuerdo a tu HTML, solo "Antiferrorresonante" es required dentro de este grupo
+                if (id === "Antiferrorresonante") {
+                    input.required = true;
+                }
+            }
+        });
+    }
+ 
+    // ==========================================
+    // LÓGICA 2: Celda de referencia (CeldaTomada)
+    // ==========================================
+    if (valorClaseCelda === "Celda propia") {
+        // 👉 OCULTAR Celda Tomada
+        if (campoCeldaTomada && inputCeldaTomada) {
+            campoCeldaTomada.classList.add("hidden-field");
+            inputCeldaTomada.required = false;
+            inputCeldaTomada.value = "";
+        }
+    } else if (valorClaseCelda === "Celda circuito" || valorClaseCelda === "Celda de llegada") {
+        // 👉 MOSTRAR Celda Tomada
+        if (campoCeldaTomada && inputCeldaTomada) {
+            campoCeldaTomada.classList.remove("hidden-field");
+            inputCeldaTomada.required = true; // Es required en tu HTML
+        }
+    } else {
+        // Opcional: Ocultar por defecto si no hay selección
+        if (campoCeldaTomada) campoCeldaTomada.classList.add("hidden-field");
+    }
+}
+ 
+// Asignar el evento change al select
+document.getElementById("ClaseCelda").addEventListener("change", actualizarVisibilidadClaseCelda);
+ 
+// Ejecutar al cargar la página para aplicar el estado inicial
+document.addEventListener("DOMContentLoaded", actualizarVisibilidadClaseCelda);
 
   function actualizarVisibilidadNodoFinalCA() {
     if (window.rellenandoFormulario) return;
