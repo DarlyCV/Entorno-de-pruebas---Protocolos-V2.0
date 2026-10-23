@@ -854,8 +854,7 @@ function actualizarVisibilidadClaseCeldaEquipoManiobra() {
     const campoClaseCelda = document.getElementById("campo-ClaseCelda");
     const inputClaseCelda = document.getElementById("ClaseCelda");
  
-    // "Si NO es Interruptor Y TAMPOCO es Seccionador..."
-    if (valorEquipoManiobra !== "Interruptor" && valorEquipoManiobra !== "Seccionador de potencia con bobina") {
+    if (valorEquipoManiobra !== "Recloser" && valorEquipoManiobra !== "Seccionador de potencia con telemando") {
         // 👉 MOSTRAR 
         campoClaseCelda.classList.remove("hidden-field");
         inputClaseCelda.required = true;
